@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('backgroundImg.jpg') no-repeat center center, linear-gradient(to right, #4facfe, #00f2fe);
+            background-size: cover; /* Ensures the image covers the entire screen */
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .converter-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            padding: 20px 30px;
+            text-align: center;
+        }
+
+        .converter-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background: #4facfe;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #00c6ff;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+            font-weight: bold;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .result.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter-container">
+        <h1>Temperature Converter</h1>
+        <div class="input-group">
+            <input type="text" id="temperatureInput" placeholder="Enter temperature">
+            <select id="unitInput">
+                <option value="C">Celsius</option>
+                <option value="F">Fahrenheit</option>
+                <option value="K">Kelvin</option>
+            </select>
+        </div>
+        <button id="convertButton">Convert</button>
+        <div class="result hidden" id="resultDisplay"></div>
+    </div>
+
+    <script>
+        document.getElementById("convertButton").addEventListener("click", function () {
+            const temperature = parseFloat(document.getElementById("temperatureInput").value);
+            const unit = document.getElementById("unitInput").value;
+            const resultDisplay = document.getElementById("resultDisplay");
+
+            // Validate input
+            if (isNaN(temperature)) {
+                resultDisplay.textContent = "Please enter a valid number.";
+                resultDisplay.classList.remove("hidden");
+                return;
+            }
+
+            // Conversion logic
+            let convertedTemperature = "";
+
+            switch (unit) {
+                case "C":
+                    convertedTemperature = `Fahrenheit: ${(temperature * 9/5 + 32).toFixed(2)}°F, Kelvin: ${(temperature + 273.15).toFixed(2)}K`;
+                    break;
+                case "F":
+                    convertedTemperature = `Celsius: ${((temperature - 32) * 5/9).toFixed(2)}°C, Kelvin: ${(((temperature - 32) * 5/9) + 273.15).toFixed(2)}K`;
+                    break;
+                case "K":
+                    convertedTemperature = `Celsius: ${(temperature - 273.15).toFixed(2)}°C, Fahrenheit: ${((temperature - 273.15) * 9/5 + 32).toFixed(2)}°F`;
+                    break;
+                default:
+                    resultDisplay.textContent = "Invalid unit selected.";
+                    resultDisplay.classList.remove("hidden");
+                    return;
+            }
+
+            // Display result
+            resultDisplay.textContent = `Converted temperature: ${convertedTemperature}`;
+            resultDisplay.classList.remove("hidden");
+        });
+    </script>
+</body>
+</html>

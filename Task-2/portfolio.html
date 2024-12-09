@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diya Puri Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  
+</head>
+<body>
+  <!-- Hero Section -->
+  <section id="intro" class="page">
+    <h1>Diya's Portfolio</h1>
+    <p>Welcome to my portfolio</p>
+    <a href="Diya's resume.pdf" download class="download-btn">Download Resume</a>
+</section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <img src="images/About.jpg" alt="Diya Puri">
+      <p>
+        Hi! I'm Diya Puri, an Information Technology student, football player, and artist.  
+        My passion lies in combining technical expertise with creativity and discipline from my sports and arts background.
+      </p>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <h2 >Education</h2>
+    <ul>
+      <li><strong>B.Sc. IT</strong> – Jai Hind College (Expected May 2026)</li>
+      <li>90% – ISC Boards (2023, St. Gregorios High School)</li>
+      <li>91% – ICSE Boards (2021, St. Gregorios High School)</li>
+    </ul>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="skills-column">
+      <h2>Soft Skills</h2>
+      <ul>
+        <li>Teamwork</li>
+        <li>Communication</li>
+        <li>Problem-Solving</li>
+        <li>Critical Thinking</li> <!-- Added from resume -->
+      </ul>
+    </div>
+    <div class="skills-column">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Programming: C++, Python, Java</li>
+        <li>Web Development: HTML, CSS, JavaScript</li>
+        <li>Databases: SQL, Firebase</li>
+        <li>Productivity Tools: Microsoft Office Suite</li>
+    </ul>
+    </div>
+  </section>
+
+  <!-- Extra Heading for Football -->
+  
+
+  <!-- Football Section -->
+  <section id="football">
+    <h2 class="extra-heading">Extracurricular Activities</h2>
+    <h2>Football</h2>
+    <div class="gallery">
+      <img src="images/football1.jpg" alt="Football Image 1">
+      <img src="images/football2.jpg" alt="Football Image 2">
+      <img src="images/football3.jpg" alt="Football Image 3">
+      <img src="images/football4.jpg" alt="Football Image 4">
+      <img src="images/football5.jpg" alt="Football Image 5">
+      <img src="images/football6.jpg" alt="Football Image 6">
+      <img src="images/football7.jpg" alt="Football Image 7">
+      <img src="images/football8.jpg" alt="Football Image 8">
+    </div>
+  </section>
+
+
+  <!-- Art Section -->
+  <section id="art" class="page">
+    
+    <div class="art-content">
+        <img src="images/artExhibiton.jpg" alt="Art Collage" class="art-collage">
+        <div class="art-description">
+          <h2>Art</h2>
+            <p>This is my 12th grade art exhibition. This displays all different kinds of my top work done over the years</p>
+        </div>
+    </div>
+</section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="page">
+    <h2>Contact</h2>
+    
+    <div class="contact-icons">
+        <a href="diya.puri05@google.com" title="Email">
+            <i class="fas fa-envelope"></i> diya.puri05@google.com
+        </a>
+        <a href="https://www.linkedin.com/in/your-profile" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i> LinkedIn Profile
+        </a>
+        <a href="https://github.com/your-username" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i> GitHub Profile
+        </a>
+    </div>
+</section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(section => {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>
